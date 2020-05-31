@@ -1,16 +1,20 @@
 class String{
 
-    constructor(bodyA, pointB){
+    constructor(body1, body2, offsetX, offsetY){
+
+      this.offsetX = offsetX
+      this.offsetY = offsetY
        
         var options = {
-          bodyA: bodyA,
-          pointB: pointB,
-          stiffness: 0.04,
-          length: 100
+          bodyA: body1,
+          bodyB: body2,
+          pointB: {x:this.offsetX, y:this.offsetY}
+          //stiffness: 0.04,
+          //length: 100
         }
 
       this.string = Constraint.create(options);
-      this.pointB = pointB;
+      //this.pointB = pointB;
 
       World.add(world, this.string);
 
@@ -19,11 +23,18 @@ class String{
     display(){
 
      var pointA = this.string.bodyA.position;
-     var pointB = this.pointB;
+     var pointB = this.string.pointB.position;
 
-     strokeWeight(4);
+     strokeWeight(2);
      fill("black");
-     line(pointB.x, pointB.y, pointA.x, pointA.y);
+
+    var Anchor1X = pointA.x
+    var Anchor1Y = pointA.y
+
+    var Anchor2X = pointB.x + this.offsetX
+    var Anchor2Y = pointB.y + this.offsetY
+
+     line(Anchor1X, Anchor1Y, Anchor2X, Anchor2Y);
     
     }
 }

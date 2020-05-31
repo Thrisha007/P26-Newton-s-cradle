@@ -31,11 +31,13 @@ function setup() {
 
 	roof = new Roof(375,80,270,30);
 
-	string1 = new String(bob1.body, {x:295, y:85});
-	string2 = new String(bob2.body, {x:335, y:85});
-	string3 = new String(bob3.body, {x:375, y:85});
-	string4 = new String(bob4.body, {x:415, y:85});
-  string5 = new String(bob5.body, {x:450, y:85});
+	string1 = new String(bob1.body, roof.body, this.radius, 100);
+	string2 = new String(bob2.body, roof.body, this.radius, 100);
+	string3 = new String(bob3.body, roof.body, this.radius, 200 );
+	string4 = new String(bob4.body, roof.body, this.radius, 300 );
+  string5 = new String(bob5.body, roof.body, this.radius, 400 );
+
+  Movement();
   
 }
 
@@ -61,7 +63,7 @@ function draw() {
   string4.display();
   string5.display();
 
-  Movement();
+  //Movement();
   
   drawSprites();
  
