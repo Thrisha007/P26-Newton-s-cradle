@@ -23,7 +23,7 @@ class String{
     display(){
 
      var pointA = this.string.bodyA.position;
-     var pointB = this.string.pointB.position;
+     var pointB = this.string.bodyB.position;
 
      strokeWeight(2);
      fill("black");

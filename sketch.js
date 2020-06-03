@@ -31,13 +31,11 @@ function setup() {
 
 	roof = new Roof(375,80,270,30);
 
-	string1 = new String(bob1.body, roof.body, this.radius, 100);
-	string2 = new String(bob2.body, roof.body, this.radius, 100);
-	string3 = new String(bob3.body, roof.body, this.radius, 200 );
-	string4 = new String(bob4.body, roof.body, this.radius, 300 );
-  string5 = new String(bob5.body, roof.body, this.radius, 400 );
-
-  Movement();
+	string1 = new String(bob1.body, roof.body, -80, 0);
+	string2 = new String(bob2.body, roof.body, -40, 0);
+	string3 = new String(bob3.body, roof.body, 0, 0);
+	string4 = new String(bob4.body, roof.body, 40, 0);
+  string5 = new String(bob5.body, roof.body, 80, 0);
   
 }
 
@@ -62,18 +60,16 @@ function draw() {
   string3.display();
   string4.display();
   string5.display();
-
-  //Movement();
   
-  drawSprites();
+ // drawSprites();
  
 }
 
-function Movement(){
+function keyPressed(){
 
   if(keyCode === UP_ARROW){
 
-      Matter.Body.applyForce(bob1.body,bob1.position,{x:-105,y:85});
+      Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-105,y:-85});
 
   }
 
